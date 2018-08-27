@@ -15,7 +15,7 @@ export class AppComponent {
   accounts: any;
   fixedInfo: any;
   dynamicInfo: any;
-
+  address: any;
   balance: number;
   vehicle_plate_id: string;
   status: string;
@@ -28,7 +28,7 @@ export class AppComponent {
   vehicle_charac: string;
   vehicle_manufac: string;
   vehicle_datereg: string;
-  vehicle_datepro: string;
+  vehicle_datepro: any;
   vehicle_serial: string;
   vehicle_status: string;
 
@@ -46,6 +46,7 @@ export class AppComponent {
     this.web3Service.getAccounts().subscribe(accs => {
       this.accounts = accs;
       this.account = this.accounts[0];
+      this.address= this.account;
       console.log(this.account);
       // This is run from window:load and ZoneJS is not aware of it we
       // need to use _ngZone.run() so that the UI updates on promise resolution
@@ -101,8 +102,10 @@ export class AppComponent {
   };
 
   addVehicle = () => {
+    console.log(Date.parse(this.vehicle_datepro)/1000);
+    this.vehicle_datepro = Date.parse(this.vehicle_datepro)/1000
     this.setStatus('Initiating transaction... (please wait)');
-    this.vehicleServie.addVehicle(this.account,this.vehicle_owner,this.vehicle_id,this.vehicle_name,this.vehicle_type,this.vehicle_color,this.vehicle_datepro,this.vehicle_datereg,this.vehicle_charac,this.vehicle_manufac,this.vehicle_serial)
+    this.vehicleServie.addVehicle(this.account,this.vehicle_owner,this.vehicle_id,this.vehicle_name,this.vehicle_type,this.vehicle_color,this.vehicle_datepro, this.vehicle_charac,this.vehicle_manufac,this.vehicle_serial)
     .subscribe(() => {
       this.setStatus('Transaction complete!');
     }, e => this.setStatus('Error sending coin; see log.'))

@@ -70,17 +70,16 @@ export class VehicleService {
     })
   }
 
+  
 
-  addVehicle(from, owner, plate_id, name, type, color, yearPro, yearReg, charac, manufac, serial): Observable < any > {
+  addVehicle(from, owner, plate_id, name, type, color, yearPro, charac, manufac, serial): Observable < any > {
     let meta;
-    
-    
     let x = Observable.create(observer => {
       this.Vehicle
         .deployed()
         .then(instance => {
         meta = instance;
-        return meta.addVehicle(owner, plate_id, name, type, color, yearPro, yearReg, charac, manufac, serial, {
+        return meta.addVehicle(owner, plate_id, name, type, color, yearPro,  charac, manufac, serial, {
             from: from,
           });
         })
@@ -91,7 +90,6 @@ export class VehicleService {
           console.log(e);
         });
     });
-    console.log("ahihi " + x + " ahihi");
     return x;
   }
 }
