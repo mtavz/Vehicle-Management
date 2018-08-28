@@ -1,6 +1,6 @@
 <div class="wrapper wrapper-content">
-
-  <form class="row" #coinForm="ngForm">
+  <form class="row" #coinForm="ngForm" *ngIf="isLoaded == true">
+    <h1>Đăng ký xe</h1>
     <div class="field">
       <label class="label">Owner Address</label>
       <p class="control">

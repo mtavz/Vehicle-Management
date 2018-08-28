@@ -8,11 +8,16 @@ import { Web3Service } from '../services/web3.service'
 import { VehicleService } from '../services/vehicle.service'
 
 
-import { Topnavbar } from "./components/topnavbar/topnavbar.component";
-import { Navigation } from "./components/navigation/navigation.component";
-import { RouterModule } from "@angular/router";
-import { appRoutes } from "./app.routes";
-import { HomeComponent } from "./pages/home/home.component";
+import { Topnavbar } from './components/topnavbar/topnavbar.component';
+import { Navigation } from './components/navigation/navigation.component';
+import { RouterModule } from '@angular/router';
+import { appRoutes } from './app.routes';
+import { HomeComponent } from './pages/home/home.component';
+import { getVehicleComponent } from './pages/getVehicle/getVehicle.component';
+import { newVehicleComponent } from './pages/newVehicle/newVehicle.component';
+import { changeOwnerComponent } from './pages/changeOwner/changeOwner.component';
+import { changeSttComponent } from './pages/changeStt/changeStt.component';
+import { manageComponent } from './pages/manage/manage.component';
 
 
 const SERVICES = [
@@ -25,7 +30,13 @@ const SERVICES = [
         AppComponent,
         Navigation,
         Topnavbar,
-        HomeComponent
+
+        HomeComponent,
+        getVehicleComponent,
+        newVehicleComponent,
+        changeOwnerComponent,
+        changeSttComponent,
+        manageComponent
     ],
     imports: [
         BrowserModule,

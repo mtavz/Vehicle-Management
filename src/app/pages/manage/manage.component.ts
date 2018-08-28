@@ -4,10 +4,10 @@
 import {OnInit, Component} from "@angular/core";
 
 @Component({
-    selector: 'home',
-    templateUrl: './home.component.html'
+    selector: 'manage',
+    templateUrl: './manage.component.html'
 })
-export class HomeComponent implements OnInit {
+export class manageComponent implements OnInit {
     constructor() { }
 
     ngOnInit() {

@@ -4,10 +4,10 @@
 import {OnInit, Component} from "@angular/core";
 
 @Component({
-    selector: 'home',
-    templateUrl: './home.component.html'
+    selector: 'changeOwner',
+    templateUrl: './changeOwner.component.html'
 })
-export class HomeComponent implements OnInit {
+export class changeOwnerComponent implements OnInit {
     constructor() { }
 
     ngOnInit() {

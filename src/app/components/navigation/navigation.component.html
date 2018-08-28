@@ -1,32 +1,67 @@
 <nav class="navbar-default navbar-static-side" role="navigation">
-    <div class="sidebar-collapse">
-        <ul class="nav metismenu" id="side-menu">
-            <li class="nav-header">
-                <div class="dropdown profile-element">
-                    <span>
-                        <img alt="image" class="img-circle" width="80px"
-                             src="./assets/img/avatar/{{loginInfo.avatar}}" />
-                    </span>
-                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                      <span class="clear">
-                          <span class="block m-t-xs">
-                          <strong class="font-bold">{{loginInfo.first_name}} {{loginInfo.last_name}}</strong>
-                      </span>
-                          <span class="text-muted text-xs block">{{loginInfo.title}}</span>
-                      </span>
-                    </a>
-                </div>
-                <div class="logo-element">
-                    SWWCC
-                </div>
-            </li>
-            <li [ngClass]="{active: activeRoute('home')}">
-                <a [routerLink]="['./home']"><i class="fa fa-dashboard"></i> <span class="nav-label">Dashboards</span></a>
-            </li>
-            <li [ngClass]="{active: activeRoute('others')}">
-                <a [routerLink]="['./others']"><i class="fa fa-desktop"></i> <span class="nav-label">Others</span></a>
-            </li>
-        </ul>
+  <div class="sidebar-collapse">
+    <ul class="nav_ metismenu" id="side-menu">
+      <li class="nav-header">
+        <div class="dropdown profile-element">
+          <span>
+            <img alt="image" class="img-circle" width="80px" src="./assets/img/avatar/{{loginInfo.avatar}}" />
+          </span>
+          <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+            <span class="clear">
+              <span class="block m-t-xs">
+                <strong class="font-bold">{{loginInfo.first_name}} {{loginInfo.last_name}}</strong>
+              </span>
+              <span class="text-muted text-xs block">{{loginInfo.title}}</span>
+            </span>
+          </a>
+        </div>
+        <div class="logo-element">
+          SWWCC
+        </div>
+      </li>
+      <li [ngClass]="{active: activeRoute('home')}">
+        <a [routerLink]="['./home']">
+          <i class="fa fa-dashboard"></i>
+          <span class="nav-label">Dashboards</span>
+        </a>
+      </li>
+      <li [ngClass]="{active: activeRoute('getVehicle')}">
+        <a [routerLink]="['./getVehicle']">
+          <i class="fa fa-desktop"></i>
+          <span class="nav-label">Thông tin phương tiện</span>
+        </a>
+      </li>
+      <li [ngClass]="{active: activeRoute('changeOwner')}">
+        <a [routerLink]="['./changeOwner']">
+          <i class="fa fa-desktop"></i>
+          <span class="nav-label">Thay đổi chủ sở hữu</span>
+        </a>
+      </li>
+      <!--<li [ngClass]="{active: activeRoute('checkAccount')}">
+        <a [routerLink]="['./checkAccount']">
+          <i class="fa fa-desktop"></i>
+          <span class="nav-label">Kiểm tra số dư</span>
+        </a>
+      </li>-->
+      <li [ngClass]="{active: activeRoute('changeStt')}">
+        <a [routerLink]="['./changeStt']">
+          <i class="fa fa-desktop"></i>
+          <span class="nav-label">Thay đổi trạng thái phương tiện</span>
+        </a>
+      </li>
+      <li [ngClass]="{active: activeRoute('newVehicle')}">
+        <a [routerLink]="['./newVehicle']">
+          <i class="fa fa-desktop"></i>
+          <span class="nav-label">Đăng ký xe</span>
+        </a>
+      </li>
+      <li [ngClass]="{active: activeRoute('manage')}">
+        <a [routerLink]="['./manage']">
+          <i class="fa fa-desktop"></i>
+          <span class="nav-label">Phân quyền</span>
+        </a>
+      </li>
+    </ul>
 
-    </div>
+  </div>
 </nav>
