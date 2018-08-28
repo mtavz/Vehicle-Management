@@ -1,0 +1,88 @@
+<div class="wrapper wrapper-content">
+
+  <form class="row" #coinForm="ngForm">
+    <div class="field">
+      <label class="label">Owner Address</label>
+      <p class="control">
+        <input [(ngModel)]="vehicle_owner" class="input" type="text" placeholder="0x93e66d9baea28c17d9fc393b53e3fbdd76899dae" name="vehicle_owner">
+      </p>
+    </div>
+
+    <div class="field">
+      <label class="label">Plate ID</label>
+      <p class="control">
+        <input [(ngModel)]="vehicle_id" class="input" type="text" placeholder="29-N2 99999" name="vehicle_id">
+      </p>
+    </div>
+
+
+    <div class="field">
+      <label class="label">Name</label>
+      <p class="control">
+        <input [(ngModel)]="vehicle_name" class="input" type="text" placeholder="TOYOTA " name="vehicle_name">
+      </p>
+    </div>
+
+    <div class="field">
+      <label class="label">Type</label>
+      <p class="control">
+        <input [(ngModel)]="vehicle_type" class="input" type="text" placeholder="Car 4" name="vehicle_type">
+      </p>
+    </div>
+
+
+    <div class="field">
+      <label class="label">Color</label>
+      <p class="control">
+        <input [(ngModel)]="vehicle_color" class="input" type="text" placeholder="Black" name="vehicle_color">
+      </p>
+    </div>
+
+    <div class="field">
+      <label class="label">ManuFac</label>
+      <p class="control">
+        <input [(ngModel)]="vehicle_manufac" class="input" type="text" placeholder="TOYOTA Viet Nam" name="vehicle_manufac">
+      </p>
+    </div>
+
+    <div class="field">
+      <label class="label">DatePro</label>
+      <p class="control">
+        <input [(ngModel)]="vehicle_datepro" class="input" type="date" placeholder="22/12/2015" name="vehicle_datepro">
+      </p>
+    </div>
+
+
+    <div class="field">
+      <label class="label">DateReg</label>
+      <p class="control">
+        <input [(ngModel)]="vehicle_datereg" class="input" type="date" placeholder="22/12/2018" name="vehicle_datereg">
+      </p>
+    </div>
+
+
+    <div class="field">
+      <label class="label">Charac</label>
+      <p class="control">
+        <input [(ngModel)]="vehicle_charac" class="input" type="text" placeholder="Zin new :)" name="vehicle_charac">
+      </p>
+    </div>
+
+    <div class="field">
+      <label class="label">Seria Number</label>
+      <p class="control">
+        <input [(ngModel)]="vehicle_serial" class="input" type="text" placeholder="dfasdjfakf323" name="vehicle_serial">
+      </p>
+    </div>
+
+    <div class="field is-grouped">
+      <p class="control">
+        <button (click)="addVehicle()" class="button is-primary">
+          Register
+        </button>
+      </p>
+    </div>
+  </form>
+
+
+</div>

@@ -1,15 +1,14 @@
-import { AngularTrufflePage } from './app.po';
+import { NgDashboardPage } from './app.po';
 
-describe('angular-truffle App', () => {
-  let page: AngularTrufflePage;
+describe('ng-dashboard App', () => {
+  let page: NgDashboardPage;
 
   beforeEach(() => {
-    page = new AngularTrufflePage();
+    page = new NgDashboardPage();
   });
 
   it('should display message saying app works', () => {
     page.navigateTo();
-    // per https://github.com/DefinitelyTyped/DefinitelyTyped/issues/15215#issuecomment-287280031
-    expect<any>(page.getParagraphText()).toEqual('Metacoin ~ Angular4 + Truffle Starter Dapp');
+    expect(page.getParagraphText()).toEqual('app works!');
   });
 });

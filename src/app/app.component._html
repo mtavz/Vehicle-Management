@@ -1,0 +1,200 @@
+<section class="hero is-medium is-info is-bold">
+  <div class="hero-body">
+      <h1 class="title is-1">
+        Vehicle Management
+      </h1>
+      <h1 class="title is-4 is-info help">{{status}}</h1>
+
+      <h2 class="title">
+        Your address
+        <span class="is-medium has-underline">{{address}}</span>
+      </h2>
+  </div>
+</section>
+
+
+<div class="container">
+  <h1 class="title">Get vehicle info</h1>
+  <div class="field">
+    <label class="label">Plate ID</label>
+    <p class="control">
+      <input [(ngModel)]="vehicle_plate_id" class="input" type="text" placeholder="9999" name="vehicle_plate_id">
+    </p>
+  </div>
+
+  <button (click)="getInfo()" class="button is-primary">
+    Get Info
+  </button>
+</div>
+
+<div class="container">
+  <h1 class="title">Thay đổi chủ sở hữu</h1>
+  <div class="field">
+    <label class="label">Plate ID</label>
+    <p class="control">
+      <input [(ngModel)]="vehicle_plate_id" class="input" type="text" placeholder="9999" name="vehicle_plate_id">
+    </p>
+  </div>
+
+
+  <div class="field">
+    <label class="label">Chủ sở hữu cũ</label>
+    <p class="control">
+      <input [(ngModel)]="vehicle_plate_id" class="input" type="text" placeholder="0x14cce38d6e09016d328acb13d2710b9fbd2f7ec2"
+        name="vehicle_plate_id">
+    </p>
+  </div>
+
+  <div class="field">
+    <label class="label">Chủ sở hữu mới</label>
+    <p class="control">
+      <input [(ngModel)]="vehicle_plate_id" class="input" type="text" placeholder="0x14cce38d6e09016d328acb13d2710b9fbd2f7ec2"
+        name="vehicle_plate_id">
+    </p>
+  </div>
+  <button (click)="getInfo()" class="button is-primary">
+    Đổi chủ sở hữu
+  </button>
+</div>
+
+
+
+<div class="container">
+  <h1 class="title">Thay đổi trạng thái phương tiện</h1>
+  <div class="field">
+    <label class="label">Plate ID</label>
+    <p class="control">
+      <input [(ngModel)]="vehicle_plate_id" class="input" type="text" placeholder="9999" name="vehicle_plate_id">
+    </p>
+  </div>
+  <div class="field">
+    <label class="label">Chủ sở hữu</label>
+    <p class="control">
+      <input [(ngModel)]="vehicle_plate_id" class="input" type="text" placeholder="0x14cce38d6e09016d328acb13d2710b9fbd2f7ec2"
+        name="vehicle_plate_id">
+    </p>
+  </div>
+
+  <div class="field">
+    <label class="label">Trạng thái mới</label>
+    <p class="control">
+      <input [(ngModel)]="vehicle_plate_id" class="input" type="text" placeholder="9999" name="vehicle_plate_id">
+    </p>
+  </div>
+  <button (click)="getInfo()" class="button is-primary">
+    Thay đổi trạng thái
+  </button>
+</div>
+
+
+
+<div class="container">
+  <h1 class="title">Registry new vehicle</h1>
+  <form #coinForm="ngForm">
+    <div class="field">
+      <label class="label">Owner Address</label>
+      <p class="control">
+        <input [(ngModel)]="vehicle_owner" class="input" type="text" placeholder="0x93e66d9baea28c17d9fc393b53e3fbdd76899dae" name="vehicle_owner">
+      </p>
+    </div>
+
+    <div class="field">
+      <label class="label">Plate ID</label>
+      <p class="control">
+        <input [(ngModel)]="vehicle_id" class="input" type="text" placeholder="29-N2 99999" name="vehicle_id">
+      </p>
+    </div>
+
+
+    <div class="field">
+      <label class="label">Name</label>
+      <p class="control">
+        <input [(ngModel)]="vehicle_name" class="input" type="text" placeholder="TOYOTA " name="vehicle_name">
+      </p>
+    </div>
+
+    <div class="field">
+      <label class="label">Type</label>
+      <p class="control">
+        <input [(ngModel)]="vehicle_type" class="input" type="text" placeholder="Car 4" name="vehicle_type">
+      </p>
+    </div>
+
+
+    <div class="field">
+      <label class="label">Color</label>
+      <p class="control">
+        <input [(ngModel)]="vehicle_color" class="input" type="text" placeholder="Black" name="vehicle_color">
+      </p>
+    </div>
+
+    <div class="field">
+      <label class="label">ManuFac</label>
+      <p class="control">
+        <input [(ngModel)]="vehicle_manufac" class="input" type="text" placeholder="TOYOTA Viet Nam" name="vehicle_manufac">
+      </p>
+    </div>
+
+    <div class="field">
+      <label class="label">DatePro</label>
+      <p class="control">
+        <input [(ngModel)]="vehicle_datepro" class="input" type="date" placeholder="22/12/2015" name="vehicle_datepro">
+      </p>
+    </div>
+
+
+    <div class="field">
+      <label class="label">DateReg</label>
+      <p class="control">
+        <input [(ngModel)]="vehicle_datereg" class="input" type="date" placeholder="22/12/2018" name="vehicle_datereg">
+      </p>
+    </div>
+
+
+    <div class="field">
+      <label class="label">Charac</label>
+      <p class="control">
+        <input [(ngModel)]="vehicle_charac" class="input" type="text" placeholder="Zin new :)" name="vehicle_charac">
+      </p>
+    </div>
+
+    <div class="field">
+      <label class="label">Seria Number</label>
+      <p class="control">
+        <input [(ngModel)]="vehicle_serial" class="input" type="text" placeholder="dfasdjfakf323" name="vehicle_serial">
+      </p>
+    </div>
+
+    <div class="field is-grouped">
+      <p class="control">
+        <button (click)="addVehicle()" class="button is-primary">
+          Register
+        </button>
+      </p>
+    </div>
+  </form>
+
+  <div class="container">
+    <h1 class="title">Phân quyền, quản lý hệ thống</h1>
+    <div class="field">
+      <label class="label">Address</label>
+      <p class="control">
+        <input [(ngModel)]="vehicle_plate_id" class="input" type="text" placeholder="9999" name="vehicle_plate_id">
+      </p>
+    </div>
+    <div class="field">
+      <label class="label">Quyền</label>
+      <p class="control">
+        <input [(ngModel)]="vehicle_plate_id" class="input" type="text" placeholder="0x14cce38d6e09016d328acb13d2710b9fbd2f7ec2"
+          name="vehicle_plate_id">
+      </p>
+    </div>
+    <button (click)="getInfo()" class="button is-primary">
+      Submit
+    </button>
+  </div>
+
+
+  <strong>Hint:</strong> open the browser developer console to view any errors and warnings.
+
+</div>
