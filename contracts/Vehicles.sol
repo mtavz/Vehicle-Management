@@ -230,8 +230,8 @@
         }
        
         //Lấy thông tin về phương tiện - những thông tin cố định.
-        function getFixedInfo(string _plate_id) view public returns (string, string, uint256, string, string) {
-            return(vehicles[_plate_id].name, vehicles[_plate_id].typeOfVehicle, vehicles[_plate_id].datePro, vehicles[_plate_id].manufac, vehicles[_plate_id].serial);
+        function getFixedInfo(string _plate_id) view public returns (string, string, string, uint256, string, string) {
+            return(vehicles[_plate_id].plate_id, vehicles[_plate_id].name, vehicles[_plate_id].typeOfVehicle, vehicles[_plate_id].datePro, vehicles[_plate_id].manufac, vehicles[_plate_id].serial);
         }
     
         //Lấy thông tin về phương tiện - những thông tin có thể bị thay đổi.

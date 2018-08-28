@@ -89,14 +89,14 @@ export class AppComponent {
     this.vehicleServie.getFixedInfo(this.vehicle_plate_id)
     .subscribe((fixedInfo)=>{
       this.fixedInfo = fixedInfo;
-      console.log(this.fixedInfo);
+      console.log(this.fixedInfo.join(', '));
       this.setStatus("Infomation already!");
     }, e=> this.setStatus('Error when getting information; see log. '))
 
     this.vehicleServie.getDynamicInfo(this.vehicle_plate_id)
     .subscribe((dynamicInfo)=>{
       this.dynamicInfo = dynamicInfo;
-      console.log(this.dynamicInfo);
+      console.log(this.dynamicInfo.join(', '));
       this.setStatus("Infomation already!");
     }, e=> this.setStatus('Error when getting information; see log. '))
   };
