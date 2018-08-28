@@ -14,74 +14,30 @@
 
   </div>
 
-  <div class="row fixed-info" *ngIf="fixedInfo">
+  <div class="row fixed-info" *ngIf="dynamicInfo">
     <div class="form-group">
       <div class="col-lg-3">Chủ sở hữu</div>
       <div class="col-lg-9">
-        {{fixedInfo[0]}}
+        {{dynamicInfo[0]}}
       </div>
       <div class="clearfix"></div>
     </div>
     <div class="form-group">
       <div class="col-lg-3">Ngày đăng ký</div>
       <div class="col-lg-9">
-        {{fixedInfo[1]}}
+        {{dynamicInfo[1]}}
       </div>
       <div class="clearfix"></div>
     </div>
     <div class="form-group">
       <div class="col-lg-3">Màu xe</div>
       <div class="col-lg-9">
-        {{fixedInfo[2]}}
+        {{dynamicInfo[2]}}
       </div>
       <div class="clearfix"></div>
     </div>
     <div class="form-group">
       <div class="col-lg-3">Đặc điểm</div>
-      <div class="col-lg-9">
-        {{fixedInfo[3]}}
-      </div>
-      <div class="clearfix"></div>
-    </div>
-
-    <div class="form-group">
-      <div class="col-lg-3">Tình trạng</div>
-      <div class="col-lg-9">
-        <span *ngIf="fixedInfo[4] == 1">Đang hoạt động</span>
-        <span *ngIf="fixedInfo[4] == 0">Ngừng hoạt động</span>
-        <span *ngIf="fixedInfo[4] == -1">Báo mất xe</span>
-      </div>
-      <div class="clearfix"></div>
-    </div>
-  </div>
-
-  <div class="row dynamic-info" *ngIf="dynamicInfo">
-    <div class="form-group">
-      <div class="col-lg-3">Biển số xe</div>
-      <div class="col-lg-9">
-        {{dynamicInfo[0]}}
-      </div>
-      <div class="clearfix"></div>
-    </div>
-
-    <div class="form-group">
-      <div class="col-lg-3">Tên xe</div>
-      <div class="col-lg-9">
-        {{dynamicInfo[1]}}
-      </div>
-      <div class="clearfix"></div>
-    </div>
-
-    <div class="form-group">
-      <div class="col-lg-3">Loại xe</div>
-      <div class="col-lg-9">
-        {{dynamicInfo[2]}}
-      </div>
-      <div class="clearfix"></div>
-    </div>
-
-    <div class="form-group">
-      <div class="col-lg-3">Ngày sản xuất</div>
       <div class="col-lg-9">
         {{dynamicInfo[3]}}
       </div>
@@ -89,9 +45,53 @@
     </div>
 
     <div class="form-group">
+      <div class="col-lg-3">Tình trạng</div>
+      <div class="col-lg-9">
+        <span *ngIf="dynamicInfo[4] == 1">Đang hoạt động</span>
+        <span *ngIf="dynamicInfo[4] == 0">Ngừng hoạt động</span>
+        <span *ngIf="dynamicInfo[4] == -1">Báo mất xe</span>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+
+  <div class="row dynamic-info" *ngIf="fixedInfo">
+    <div class="form-group">
+      <div class="col-lg-3">Biển số xe</div>
+      <div class="col-lg-9">
+        {{fixedInfo[0]}}
+      </div>
+      <div class="clearfix"></div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-lg-3">Tên xe</div>
+      <div class="col-lg-9">
+        {{fixedInfo[1]}}
+      </div>
+      <div class="clearfix"></div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-lg-3">Loại xe</div>
+      <div class="col-lg-9">
+        {{fixedInfo[2]}}
+      </div>
+      <div class="clearfix"></div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-lg-3">Ngày sản xuất</div>
+      <div class="col-lg-9">
+        {{fixedInfo[3]}}
+      </div>
+      <div class="clearfix"></div>
+    </div>
+
+    <div class="form-group">
       <div class="col-lg-3">Nhà sản xuất</div>
       <div class="col-lg-9">
-        {{dynamicInfo[4]}}
+        {{fixedInfo[4]}}
       </div>
       <div class="clearfix"></div>
     </div>
@@ -99,7 +99,7 @@
     <div class="form-group">
       <div class="col-lg-3">Số seri</div>
       <div class="col-lg-9">
-        {{dynamicInfo[5]}}
+        {{fixedInfo[5]}}
       </div>
       <div class="clearfix"></div>
     </div>
