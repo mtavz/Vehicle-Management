@@ -4,14 +4,30 @@
             function addAccount(address) public returns(bool){}
             function checkAccount(address) public view returns(bool){}
     }
-        
+    
+    
+    contract DateTime{
+        function getYear(uint256) constant returns (uint16) {}
+        function getMonth(uint256) constant returns (uint16) {}
+        function getDay(uint256) constant returns (uint16) {}
+        function getHour(uint256) constant returns (uint16) {}
+        function getMinute(uint256) constant returns (uint16) {}
+        function getSecond(uint256) constant returns (uint16) {}
+        function toTimestamp(uint16 year, uint8 month, uint8 day, uint8 hour, uint8 minute, uint8 second) constant returns (uint) {}
+    }
+
     contract Vehicles{
+        DateTime dateTimeContract;
+       
         
         //Khởi tạo address có quyền truy cập ban đầu.
         constructor(address _address) public{
               permissionList[_address].owner = _address;
               permissionList[_address].typePermis = 1;
+              dateTimeContract = DateTime(address(0xe8660491d945560fecb719bdb96479bed17c577c));
         }
+        
+       
         
         //Liên kết với smart contract quản lý BOT
         int complete_setup = 0;
@@ -39,7 +55,7 @@
        //Thông tin cá nhân của người đăng ký phương tiện giao thông
         struct Person {
             address owner;
-            string dateRegis;
+            uint256 dateRegis;
            
         }
         
@@ -50,8 +66,8 @@
         
         mapping(address => OwnerVehicle)  ownerVehilces;
         
-        function getOwnerVehicle(address _owner, uint256 index) public view returns(string, string, bool){
-            string storage dateRegis = vehicles[ownerVehilces[_owner].plate_id[index]].persons[ownerVehilces[_owner].index[index]].dateRegis;
+        function getOwnerVehicle(address _owner, uint256 index) public view returns(string, uint256, bool){
+            uint256  dateRegis = vehicles[ownerVehilces[_owner].plate_id[index]].persons[ownerVehilces[_owner].index[index]].dateRegis;
             if (getLastOwner(ownerVehilces[_owner].plate_id[index])!=_owner){
                 return (ownerVehilces[_owner].plate_id[index], dateRegis, false);
             }
@@ -73,7 +89,7 @@
             string name;
             string typeOfVehicle;
             string color;
-            string datePro;
+            uint256 datePro;
             string charactic;
             string manufac;
             string serial;
@@ -122,7 +138,7 @@
         }
         
         //Đăng ký thêm phương tiện
-        function addVehicle(address _owner, string _plate_id, string _name, string _type, string _color, string _datePro, string _dateRegis, string _charac, string _manufac, string _serial) public returns (bool){
+        function addVehicle(address _owner, string _plate_id, string _name, string _type, string _color, uint256 _datePro, string _charac, string _manufac, string _serial) public returns (bool){
             if (checkPermission()<1){
                 return false;
             }
@@ -138,7 +154,7 @@
      
             Person storage p = vehicle.persons[vehicle.lenghtPerson] ;
             p.owner = _owner;
-            p.dateRegis= _dateRegis;
+            p.dateRegis= now;
             
             vehicle.plate_id = _plate_id;
             vehicle.name = _name;
@@ -158,7 +174,7 @@
     }
     
         //Chuyển đổi chủ sở hữu phương tiện.
-        function changeOwner(string _plate_id, address _owner, address _new_owner, string _dateRegis) public returns (bool){
+        function changeOwner(string _plate_id, address _owner, address _new_owner) public returns (bool){
            if (checkPermission()<1){
                 return false;
             }
@@ -169,7 +185,7 @@
             else{
                   Person storage p = vehicles[_plate_id].persons[vehicles[_plate_id].lenghtPerson] ;
                   p.owner = _new_owner;
-                  p.dateRegis = _dateRegis;
+                  p.dateRegis =now;
                   
                   ownerVehilces[_new_owner].plate_id.push(_plate_id) -1;
                   ownerVehilces[_new_owner].index.push(vehicles[_plate_id].lenghtPerson) -1;
@@ -205,19 +221,23 @@
         }
     
         //Lấy thông tin về chủ phương tiện
-        function getOwnerInfo(string _plate_id, uint256 index) public view returns (address, string){
+        function getOwnerInfo(string _plate_id, uint256 index) public view returns (address, uint256){
             return (vehicles[_plate_id].persons[index].owner, vehicles[_plate_id].persons[index].dateRegis);
+        }
+        
+        function getType(string _plate_id) public view returns (string){
+            return vehicles[_plate_id].typeOfVehicle;
         }
        
         //Lấy thông tin về phương tiện - những thông tin cố định.
-        function getFixedInfo(string _plate_id) view public returns (string, string, string, string, string) {
+        function getFixedInfo(string _plate_id) view public returns (string, string, uint256, string, string) {
             return(vehicles[_plate_id].name, vehicles[_plate_id].typeOfVehicle, vehicles[_plate_id].datePro, vehicles[_plate_id].manufac, vehicles[_plate_id].serial);
         }
     
         //Lấy thông tin về phương tiện - những thông tin có thể bị thay đổi.
-        function getDynamicInfo(string _plate_id) view public returns (address, string, string, string, int){
+        function getDynamicInfo(string _plate_id) view public returns (address, uint256, string, string, int){
             address _owner = vehicles[_plate_id].persons[vehicles[_plate_id].lenghtPerson-1].owner;
-            string storage _dateRegis = vehicles[_plate_id].persons[vehicles[_plate_id].lenghtPerson-1].dateRegis;
+            uint256 _dateRegis = vehicles[_plate_id].persons[vehicles[_plate_id].lenghtPerson-1].dateRegis;
             return (_owner, _dateRegis , vehicles[_plate_id].color, vehicles[_plate_id].charactic, vehicles[_plate_id].status);
         }
     }
